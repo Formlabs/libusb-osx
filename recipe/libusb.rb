@@ -31,7 +31,10 @@ class Libusb < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    ENV.append "CFLAGS", "-mmacosx-version-min=10.7"
+    # for this to work you need to:
+    # edit (with Xcode) the MinimumSDKVersion key value in /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
+    ENV["SDKROOT"] = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.7"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     args << "--disable-log" if build.without? "runtime-logging"
