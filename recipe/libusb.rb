@@ -33,8 +33,8 @@ class Libusb < Formula
     ENV.universal_binary if build.universal?
     # for this to work you need to:
     # edit (with Xcode) the MinimumSDKVersion key value in /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
-    ENV["SDKROOT"] = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk"
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.7"
+    ENV["SDKROOT"] = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.10"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     args << "--disable-log" if build.without? "runtime-logging"
